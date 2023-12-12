@@ -1,7 +1,12 @@
 <?php
 
-use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\BlogController;
+use App\Http\Controllers\SiteController;
+use App\Http\Controllers\ProjetController;
+use App\Http\Controllers\ContactController;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ServiceController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,4 +33,9 @@ Route::middleware([
     })->name('dashboard');
 
     Route::resource('profile', ProfileController::class);
+    Route::resource('service', ServiceController::class);
+    Route::resource('projet', ProjetController::class);
+    route::resource('blog', BlogController::class);
+    Route::resource('site', SiteController::class);
+    Route::resource('contact', ContactController::class);
 });

@@ -13,6 +13,11 @@ return new class extends Migration
     {
         Schema::create('awards', function (Blueprint $table) {
             $table->id();
+            $table->integer('client')->nullable();
+            $table->integer('design')->nullable();
+            $table->integer('win')->nullable();
+            $table->string('integer')->nullable();
+
             $table->timestamps();
         });
     }

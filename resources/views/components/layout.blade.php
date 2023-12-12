@@ -62,6 +62,11 @@
                     <a href="{{ route('dashboard') }}" class="nav-item nav-link active"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
 
                     <a href="{{ route('profile.index') }}" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Profile</a>
+                    <a href="{{ route('education.index') }}" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Education</a>
+                    <a href="{{ route('experience.index') }}" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Experience</a>
+                    <a href="{{ route('skill.index') }}" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Skills</a>
+                    <a href="{{ route('award.index') }}" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Awards</a>
+
                     <a href="{{ route('service.index') }}" class="nav-item nav-link"><i class="fa fa-keyboard me-2"></i>Services</a>
                     <a href="{{ route('projet.index') }}" class="nav-item nav-link"><i class="fa fa-table me-2"></i>Projets</a>
                     <a href="{{ route('blog.index') }}" class="nav-item nav-link"><i class="fa fa-chart-bar me-2"></i>BLogs</a>

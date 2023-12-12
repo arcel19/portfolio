@@ -16,7 +16,7 @@ return new class extends Migration
             $table->integer('client')->nullable();
             $table->integer('design')->nullable();
             $table->integer('win')->nullable();
-            $table->string('integer')->nullable();
+            $table->integer('jobs')->nullable();
 
             $table->timestamps();
         });

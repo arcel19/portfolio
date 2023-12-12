@@ -3,10 +3,14 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\SiteController;
+use App\Http\Controllers\AwardController;
+use App\Http\Controllers\SkillController;
 use App\Http\Controllers\ProjetController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\EducationController;
+use App\Http\Controllers\ExperienceController;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,4 +42,8 @@ Route::middleware([
     route::resource('blog', BlogController::class);
     Route::resource('site', SiteController::class);
     Route::resource('contact', ContactController::class);
+    Route::resource('education', EducationController::class);
+    Route::resource('skill', SkillController::class);
+    Route::resource('award', AwardController::class);
+    Route::resource('experience', ExperienceController::class);
 });

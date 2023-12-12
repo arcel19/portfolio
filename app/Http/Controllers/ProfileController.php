@@ -29,7 +29,15 @@ class ProfileController extends Controller
      */
     public function store(StoreProfileRequest $request)
     {
-        //
+        $profile = Profile::create([
+            'description'=> $request->description,
+            'date_of_birth' =>$request->date_of_birth,
+            'address' => $request->address,
+            'email' => $request->email,
+            'phone'=> $request->phone,
+            'zip_code'=> $request->zip_code,
+            'facebook' =>$requwa
+        ])
     }
 
     /**

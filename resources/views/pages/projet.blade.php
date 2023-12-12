@@ -88,7 +88,7 @@
         <div class="form-floating mb-3">
             <input type="text" name="category" class="form-control" id="floatingPassword"
                 placeholder="category">
-            <label for="floatingPassword">Password</label>
+            <label for="floatingPassword">category</label>
         </div>
         <div class="mb-3">
             <label for="formFile" class="form-label">Photo</label>

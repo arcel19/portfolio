@@ -3,15 +3,15 @@
     <div class="page-header">
        <div class="row align-items-center">
            <div class="col">
-               <h3 class="page-title">Squadron</h3>
+               <h3 class="page-title">services</h3>
                <ul class="breadcrumb">
                    <li class="breadcrumb-item"><a href="{{route('dashboard')}}">Dashboard</a></li>
-                   <li class="breadcrumb-item active">Squadron</li>
+                   <li class="breadcrumb-item active">services</li>
                </ul>
            </div>
            <div class="col-auto float-right ml-auto">
                <a href="#" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"><i
-                       class="fa fa-plus"></i> Add Squadron</a>
+                       class="fa fa-plus"></i> Add a Service</a>
            </div>
        </div>
    </div>
@@ -19,7 +19,7 @@
 
    <div class="col-12">
        <div class="bg-light rounded h-100 p-4">
-           <h6 class="mb-4">Responsive Table</h6>
+           <h6 class="mb-4">List of services </h6>
            <div class="table-responsive">
                <table class="table">
                    <thead>
@@ -76,11 +76,29 @@
    <div class="modal-dialog">
      <div class="modal-content">
        <div class="modal-header">
-         <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+         <h1 class="modal-title fs-5" id="exampleModalLabel">Services</h1>
          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
        </div>
        <div class="modal-body">
-         ...
+        <div class="form-floating mb-3">
+            <input type="text" name="name" class="form-control" id="floatingInput"
+                placeholder="name">
+            <label for="floatingInput">Name</label>
+        </div>
+        {{-- <div class="form-floating mb-3">
+            <input type="password" class="form-control" id="floatingPassword"
+                placeholder="Password">
+            <label for="floatingPassword">Password</label>
+        </div> --}}
+        <div class="mb-3">
+            <label for="formFile" class="form-label">Photo</label>
+            <input class="form-control" type="file" name="photo" id="formFile">
+        </div>
+        <div class="form-floating">
+            <textarea class="form-control" name="description" placeholder="Leave a comment here"
+                id="floatingTextarea" style="height: 150px;"></textarea>
+            <label for="floatingTextarea">Description</label>
+        </div>
        </div>
        <div class="modal-footer">
          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>

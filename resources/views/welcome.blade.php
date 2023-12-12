@@ -76,10 +76,12 @@
 					<div class="banner-active">
 						<div class="banner-wrapper vh d-flex">
 							<div class="container">
+                                @foreach ($profile as $pro )
+                                    
 								<div class="row">
 									<div class="col-md-6">
 										<div class="myphoto">
-											<img src="img/about-img2.png" alt="porri">
+											<img src="{{ '/storage/' . $pro->logo }} " alt="porri">
 										</div>
 									</div>
 									<div class="col-md-6 text-left">
@@ -91,7 +93,7 @@
 												<span id="9LopKcXqkCBA" class="typewriter-char typewriter-item-2">/</span>
 												</span><span class="typewriter-cursor">|</span>
 											</h3>
-											<h1>Hello, I'm Robert Lee</h1>
+											<h1>Hello, I'm {{ $pro->user->name}}</h1>
 											<p>Rearrange the entire color palette, making your site unique and beautiful.theme using a wide selection </p>
 											<div class="home-all-button new-btn mt-3">
 												<a href="#">See All Demo</a>
@@ -99,6 +101,8 @@
 										</div>
 									</div>
 								</div>
+                                @endforeach
+
 							</div>
 							<div class="animation-circle-inverse right">
 								<span></span>
@@ -113,28 +117,32 @@
 				<div class="section-two section-protfolio res-topp">
 					<div class="container">
 						<div class="row resume-bottom">
+                            @foreach ($profile as $pro )
+
 							<div class="col-lg-6">
 								<div class="con-about">
-									<img class="about-img" src="img/about.jpg" alt="">
+									<img class="about-img" src="{{ '/storage/' . $pro->photo }}" alt="">
 								</div>
 							</div>
 							<div class="col-lg-5 offset-lg-1 mt-5">
 								<div class="about-text">
+
 									<h2>About Me</h2>
-									<p>Arcu a tellus pellentesque ultrices. Ut euismod luctus elit id eleifend. Donec
-									semper massa a imperdiet mattis nec ultricies lectus. </p>
+									<p>{{ $pro->description }}. </p>
 									<ul class="about-info mt-4 px-md-0 px-2">
-										<li class="d-flex"><span>Name :</span> <span>Ronaldo Fredrickson</span></li>
-										<li class="d-flex"><span>Date of birth :</span> <span>November 28, 1989</span></li>
-										<li class="d-flex"><span>Address :</span> <span>San Francisco CA 97987 USA</span></li>
-										<li class="d-flex"><span>Zip code :</span> <span>1000</span></li>
-										<li class="d-flex"><span>Email :</span> <span>personal@gmail.com</span></li>
-										<li class="d-flex"><span>Phone : </span> <span>+1-2234-5678-9-0</span></li>
+										<li class="d-flex"><span>Name :</span> <span>{{ $pro->user->name }}</span></li>
+										<li class="d-flex"><span>Date of birth :</span> <span>{{ $pro->date_of_birth }}</span></li>
+										<li class="d-flex"><span>Address :</span> <span>{{ $pro->address }}</span></li>
+										<li class="d-flex"><span>Zip code :</span> <span>{{ $pro->zip_code }}</span></li>
+										<li class="d-flex"><span>Email :</span> <span>{{ $pro->email }}</span></li>
+										<li class="d-flex"><span>Phone : </span> <span>{{ $pro->phone }}</span></li>
 									</ul>
 									<div class="home-all-button new-btn mt-4">
 										<a href="#">See All Demo</a>
 									</div>
 								</div>
+                                @endforeach
+
 							</div>
 						</div>
 						<div class="container mt-5">

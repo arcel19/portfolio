@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Profile;
 use App\Http\Requests\StoreProfileRequest;
 use App\Http\Requests\UpdateProfileRequest;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Storage;
+
 
 class ProfileController extends Controller
 {
@@ -29,6 +32,7 @@ class ProfileController extends Controller
      */
     public function store(StoreProfileRequest $request)
     {
+        // dd($request->all());
         $profile = Profile::create([
             'description'=> $request->description,
             'date_of_birth' =>$request->date_of_birth,
@@ -36,8 +40,38 @@ class ProfileController extends Controller
             'email' => $request->email,
             'phone'=> $request->phone,
             'zip_code'=> $request->zip_code,
-            'facebook' =>$requwa
-        ])
+            'facebook' =>$request->facebook,
+            'twitter' =>$request->twitter,
+            'github'=> $request->github,
+            'linkedin'=> $request->linkedin,
+            'user_id' => auth()->user()->id,
+        ]);
+        if($request->file('photo')){
+            $request->validate([
+                'photo' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',]);
+            $ext = $request->file('photo')->extension();
+            $content = file_get_contents($request->file('photo'));
+            $filename = str::random(10);
+            $path = "ProfilePhoto/.$filename.$ext";
+            storage::disk('public')->put($path,$content);
+            $profile->update([
+                'photo' =>$path
+            ]);
+        }
+        if($request->file('logo')){
+            $request->validate([
+                'logo' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',]);
+            $ext = $request->file('logo')->extension();
+            $content = file_get_contents($request->file('logo'));
+            $filename = str::random(10);
+            $path = "ProfilePhoto/.$filename.$ext";
+            storage::disk('public')->put($path,$content);
+            $profile->update([
+                'logo' =>$path
+            ]);
+        }
+
+        return $profile;
     }
 
     /**

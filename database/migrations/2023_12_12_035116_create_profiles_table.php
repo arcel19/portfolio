@@ -19,12 +19,13 @@ return new class extends Migration
             $table->string('zip_code');
             $table->string('email');
             $table->integer('phone');
-            $table->string('photo1');
-            $table->string('photo2');
+            $table->string('photo')->nullable();
+            $table->string('logo')->nullable();
             $table->string('facebook')->nullable();
             $table->string('github')->nullable();
             $table->string('linkedin')->nullable();
             $table->string('twitter')->nullable();
+            $table->string('description');
 
             $table->timestamps();
         });

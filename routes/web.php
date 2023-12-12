@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Profile;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\SiteController;
@@ -24,7 +25,8 @@ use App\Http\Controllers\ExperienceController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $profile = Profile::all();
+    return view('welcome', compact('profile'));
 });
 
 Route::middleware([

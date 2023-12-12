@@ -80,10 +80,18 @@
          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
        </div>
        <div class="modal-body">
+        <form action="{{ route('profile.index') }}" method="POST" enctype="multipart/form-data" >
+            @method('POST')
+            @csrf
         <div class="form-floating mb-3">
             <input type="text" name="address" class="form-control" id="floatingInput"
                 placeholder="name">
             <label for="floatingInput">address</label>
+        </div>
+        <div class="form-floating mb-3">
+            <input type="text" name="zip_code" class="form-control" id="floatingInput"
+                placeholder="zip_code">
+            <label for="floatingInput">zip_code</label>
         </div>
         <div class="form-floating mb-3">
             <input type="email" name="email" class="form-control" id="floatingInput"
@@ -102,11 +110,11 @@
         </div>
         <div class="mb-3">
             <label for="formFile" class="form-label">Photo1</label>
-            <input class="form-control" type="file" name="photo1" id="formFile">
+            <input class="form-control" type="file" name="photo" >
         </div>
         <div class="mb-3">
             <label for="formFile" class="form-label">Photo2</label>
-            <input class="form-control" type="file" name="photo2" id="formFile">
+            <input class="form-control" type="file" name="logo" >
         </div>
         <div class="form-floating mb-3">
             <input type="text" name="facebook" class="form-control" id="floatingInput"
@@ -137,8 +145,9 @@
        </div>
        <div class="modal-footer">
          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-         <button type="button" class="btn btn-primary">Save changes</button>
+         <button type="submit" class="btn btn-primary">Save changes</button>
        </div>
+    </form>
      </div>
    </div>
  </div>

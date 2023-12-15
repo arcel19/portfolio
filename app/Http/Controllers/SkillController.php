@@ -13,7 +13,8 @@ class SkillController extends Controller
      */
     public function index()
     {
-        return view('pages.skill');
+        $skills = Skill::all();
+        return view('pages.skill', compact('skills'));
     }
 
     /**
@@ -29,7 +30,11 @@ class SkillController extends Controller
      */
     public function store(StoreSkillRequest $request)
     {
-        //
+        $skill = Skill::create([
+            'name'=> $request->name,
+            'percent' => $request->percent,
+        ]);
+        return to_route('skill.index');
     }
 
     /**
@@ -61,6 +66,7 @@ class SkillController extends Controller
      */
     public function destroy(Skill $skill)
     {
-        //
+        $skill->delete();
+        return to_route('skill.index');
     }
 }

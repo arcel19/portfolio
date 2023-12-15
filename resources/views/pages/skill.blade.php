@@ -19,48 +19,36 @@
 
    <div class="col-12">
        <div class="bg-light rounded h-100 p-4">
-           <h6 class="mb-4">List of experience </h6>
+           <h6 class="mb-4">List of skill </h6>
            <div class="table-responsive">
                <table class="table">
                    <thead>
                        <tr>
                            <th scope="col">#</th>
-                           <th scope="col">First Name</th>
-                           <th scope="col">Last Name</th>
-                           <th scope="col">Email</th>
-                           <th scope="col">Country</th>
-                           <th scope="col">ZIP</th>
-                           <th scope="col">Status</th>
+                           <th scope="col">Name</th>
+                           <th scope="col">percentage</th>
+
+                           <th scope="col">action</th>
                        </tr>
                    </thead>
                    <tbody>
+                    @foreach ($skills as $sk )
+
                        <tr>
-                           <th scope="row">1</th>
-                           <td>John</td>
-                           <td>Doe</td>
-                           <td>jhon@email.com</td>
-                           <td>USA</td>
-                           <td>123</td>
-                           <td>Member</td>
+                           <th scope="row">{{ $sk->id }}</th>
+                           <td>{{ $sk->name }}</td>
+                           <td>{{ $sk->percent}}</td>
+                           <td> <form action="{{ Route('skill.destroy', $sk->id) }}" method="POST">
+                            @method('delete')
+                            @csrf
+                            <button type="submit" class="btn btn-outline-primary" ><i
+                            class="fa fa-trash"></i> </button>
+                        </form></td>
+
                        </tr>
-                       <tr>
-                           <th scope="row">2</th>
-                           <td>Mark</td>
-                           <td>Otto</td>
-                           <td>mark@email.com</td>
-                           <td>UK</td>
-                           <td>456</td>
-                           <td>Member</td>
-                       </tr>
-                       <tr>
-                           <th scope="row">3</th>
-                           <td>Jacob</td>
-                           <td>Thornton</td>
-                           <td>jacob@email.com</td>
-                           <td>AU</td>
-                           <td>789</td>
-                           <td>Member</td>
-                       </tr>
+                    @endforeach
+
+
                    </tbody>
                </table>
            </div>
@@ -79,6 +67,9 @@
          <h1 class="modal-title fs-5" id="exampleModalLabel">Skill</h1>
          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
        </div>
+       <form action="{{ route('skill.store') }}" method="POST">
+    @method('POST')
+    @csrf
        <div class="modal-body">
         <div class="form-floating mb-3">
             <input type="text" name="name" class="form-control" id="floatingInput"
@@ -86,17 +77,18 @@
             <label for="floatingInput">Name</label>
         </div>
         <div class="form-floating mb-3">
-            <input type="number" name="perrcent" class="form-control" id="floatingInput"
+            <input type="number" name="percent" class="form-control" id="floatingInput"
                 placeholder="skill percentage">
             <label for="floatingInput">percentage </label>
         </div>
-        
+
        </div>
        <div class="modal-footer">
          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-         <button type="button" class="btn btn-primary">Save changes</button>
+         <button type="submit" class="btn btn-primary">Save changes</button>
        </div>
      </div>
+    </form>
    </div>
  </div>
 

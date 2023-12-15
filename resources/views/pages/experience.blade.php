@@ -42,12 +42,12 @@
                            <td>{{ $exp->startDate }}</td>
                            <td>{{ $exp->enddate }}</td>
                            <td>{{ $exp->description }}</td>
-                           <td> <td> <form action="{{ Route('experience.destroy', $exp->id) }}" method="POST">
+                           <td> <form action="{{ Route('experience.destroy', $exp->id) }}" method="POST">
                             @method('delete')
                             @csrf
                             <button type="submit" class="btn btn-outline-primary" ><i
                             class="fa fa-trash"></i> </button>
-                        </form></td></td>
+                        </form></td>
 
                        </tr>
                     @endforeach

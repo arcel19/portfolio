@@ -11,7 +11,7 @@ class StoreExperienceRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,10 @@ class StoreExperienceRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'name'=>'required|string',
+            'description' => 'required|string',
+            'startDate' => 'required|date',
+            'enddate' =>'required|date',
         ];
     }
 }

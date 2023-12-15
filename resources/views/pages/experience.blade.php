@@ -71,6 +71,9 @@
          <h1 class="modal-title fs-5" id="exampleModalLabel">Services</h1>
          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
        </div>
+       <form action="{{ route('experience.store') }}" method="POST">
+        @method('POST')
+        @csrf
        <div class="modal-body">
         <div class="form-floating mb-3">
             <input type="text" name="name" class="form-control" id="floatingInput"
@@ -96,9 +99,11 @@
        </div>
        <div class="modal-footer">
          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-         <button type="button" class="btn btn-primary">Save changes</button>
+         <button type="submit" class="btn btn-primary">Save changes</button>
        </div>
      </div>
+    </form>
+
    </div>
  </div>
 

@@ -31,8 +31,12 @@ class ExperienceController extends Controller
     public function store(StoreExperienceRequest $request)
     {
         $experience = Experience::create([
-            'name' =>
-        ])
+            'name'=> $request->name,
+            'description'=>$request->description,
+            'startDate'=> $request->startDate,
+            'enddate'=> $request->enddate,
+        ]);
+        return to_route('experience.index');
     }
 
     /**
@@ -64,6 +68,7 @@ class ExperienceController extends Controller
      */
     public function destroy(Experience $experience)
     {
-        //
+        $experience->delete();
+        return to_route('experience.index');
     }
 }

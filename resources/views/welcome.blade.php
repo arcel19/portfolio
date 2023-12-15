@@ -77,7 +77,7 @@
 						<div class="banner-wrapper vh d-flex">
 							<div class="container">
                                 @foreach ($profile as $pro )
-                                    
+
 								<div class="row">
 									<div class="col-md-6">
 										<div class="myphoto">
@@ -150,76 +150,48 @@
 								<div class="col-md-6">
 									<div id="Education" class="resume-page resume-bottom">
 										<h2 class="heading">Education</h2>
+                                        @foreach ($educations as $edu )
+
 										<div class="resume-wrap d-flex ftco-animate fadeInUp ftco-animated">
 											<div class="icon d-flex align-items-center justify-content-center">
 												<i class="fa fa-graduation-cap"></i>
 											</div>
 											<div class="text pl-3">
-												<span class="date">2014-2015</span>
-												<h2>Science of Mordren Computer</h2>
-												<p>A small river named Duden flows by their place and supplies it with the necessary regelialia. this is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
+												<span class="date">{{ $edu->startDate }}-{{ $edu->enddate }}</span>
+												<h2>{{ $edu->name }}</h2>
+												<p>{{ $edu->description }}.</p>
 											</div>
 										</div>
-										<div class="resume-wrap d-flex ftco-animate fadeInUp ftco-animated">
-											<div class="icon d-flex align-items-center justify-content-center">
-												<i class="fa fa-graduation-cap"></i>
-											</div>
-											<div class="text pl-3">
-												<span class="date">2014-2015</span>
-												<h2>Management of Computer Systems </h2>
-												<p>A small river named Duden flows by their place and supplies it with the necessary regelialia. this is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
-											</div>
-										</div>
-										<div class="resume-wrap d-flex ftco-animate fadeInUp ftco-animated">
-											<div class="icon d-flex align-items-center justify-content-center">
-												<i class="fa fa-graduation-cap"></i>
-											</div>
-											<div class="text pl-3">
-												<span class="date">2014-2015</span>
-												<h2>Diploma in Computer</h2>
-												<p>A small river named Duden flows by their place and supplies it with the necessary regelialia. this is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
-											</div>
-										</div>
+                                        @endforeach
+
+
 									</div>
 								</div>
 								<div class="col-md-6">
 									<div id="Experience" class="resume-page resume-bottom">
 										<h2 class="heading">Experience</h2>
+                                        @foreach ($experiences as $exp )
+
 										<div class="resume-wrap d-flex ftco-animate fadeInUp ftco-animated">
 											<div class="icon d-flex align-items-center justify-content-center">
 												<i class="fa fa-briefcase"></i>
 											</div>
 											<div class="text pl-3">
-												<span class="date">2014-2015</span>
-												<h2>WordPress Developer</h2>
-												<p>A small river named Duden flows by their place and supplies it with the necessary regelialia. this is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
+												<span class="date">{{ $exp->startDate }}- {{$exp->enddate}}</span>
+												<h2>{{$exp->name}}</h2>
+												<p>{{$exp->description}}.</p>
 											</div>
 										</div>
-										<div class="resume-wrap d-flex ftco-animate fadeInUp ftco-animated">
-											<div class="icon d-flex align-items-center justify-content-center">
-												<i class="fa fa-briefcase"></i>
-											</div>
-											<div class="text pl-3">
-												<span class="date">2014-2015</span>
-												<h2>Web Designer</h2>
-												<p>A small river named Duden flows by their place and supplies it with the necessary regelialia. this is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
-											</div>
-										</div>
-										<div class="resume-wrap d-flex ftco-animate fadeInUp ftco-animated">
-											<div class="icon d-flex align-items-center justify-content-center">
-												<i class="fa fa-briefcase"></i>
-											</div>
-											<div class="text pl-3">
-												<span class="date">2014-2015</span>
-												<h2>Digitail Marketing</h2>
-												<p>A small river named Duden flows by their place and supplies it with the necessary regelialia. this is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
-											</div>
-										</div>
+                                        @endforeach
+
+
 									</div>
 								</div>
 								<div class="col-md-6">
 									<div id="Skills" class="resume-page ">
 										<h2 class="heading">Awards</h2>
+                                        @foreach ($awards as $aw )
+
 										<div class="row">
 											<div class="col-md-6 col-sm-6">
 												<div class="counter-wrapper text-center with-margin">
@@ -227,7 +199,7 @@
 														<i class="la la-user-friends"></i>
 													</div>
 													<div class="counter-text">
-														<h2 class="counter">1520</h2>
+														<h2 class="counter">{{ $aw->client }}</h2>
 														<span>Happy Clients</span>
 													</div>
 												</div>
@@ -238,7 +210,7 @@
 														<i class="la la-edit"></i>
 													</div>
 													<div class="counter-text">
-														<h2 class="counter">880</h2>
+														<h2 class="counter">{{$aw->design}}</h2>
 														<span>Running Design</span>
 													</div>
 												</div>
@@ -249,7 +221,7 @@
 														<i class="la la-award"></i>
 													</div>
 													<div class="counter-text">
-														<h2 class="counter">1250</h2>
+														<h2 class="counter">{{ $aw->win }}</h2>
 														<span>Award Win</span>
 													</div>
 												</div>
@@ -260,95 +232,40 @@
 														<i class="la la-thumbs-up"></i>
 													</div>
 													<div class="counter-text">
-														<h2 class="counter">1480</h2>
+														<h2 class="counter">{{ $aw->jobs }}</h2>
 														<span>Complete Jobs</span>
 													</div>
 												</div>
 											</div>
+                                        @endforeach
+
 										</div>
 									</div>
 								</div>
 								<div class="col-md-6">
 									<div id="Skills" class="resume-page res-top-margin">
 										<h2 class="heading">Skills</h2>
+                                        @foreach ($skills as $sk )
+                                            
 										<div class="col-md-12 animate-box">
 											<div class="progress-wrap">
 												<div class="skill-bar-content">
-													<span class="skill-title">Wordpress</span>
+													<span class="skill-title">{{ $sk->name }}</span>
 												</div>
 												<div class="bar1 barfiller">
 													<div class="tipWrap">
 														<span class="tip"></span>
 													</div>
-													<span class="fill progress-bg1" data-percentage="90"></span>
+													<span class="fill progress" data-percentage="{{ $sk->percent }}"></span>
 												</div>
 											</div>
 										</div>
-										<div class="col-md-12 animate-box">
-											<div class="progress-wrap">
-												<div class="skill-bar-content">
-													<span class="skill-title">jQuery</span>
-												</div>
-												<div class="bar2 barfiller">
-													<div class="tipWrap">
-														<span class="tip"></span>
-													</div>
-													<span class="fill progress-bg1" data-percentage="85"></span>
-												</div>
-											</div>
-										</div>
-										<div class="col-md-12 animate-box">
-											<div class="progress-wrap">
-												<div class="skill-bar-content">
-													<span class="skill-title">Photoshop</span>
-												</div>
-												<div class="bar3 barfiller">
-													<div class="tipWrap">
-														<span class="tip"></span>
-													</div>
-													<span class="fill progress-bg1" data-percentage="95"></span>
-												</div>
-											</div>
-										</div>
-										<div class="col-md-12 animate-box">
-											<div class="progress-wrap">
-												<div class="skill-bar-content">
-													<span class="skill-title">HTML5</span>
-												</div>
-												<div class="bar4 barfiller">
-													<div class="tipWrap">
-														<span class="tip"></span>
-													</div>
-													<span class="fill progress-bg1" data-percentage="90"></span>
-												</div>
-											</div>
-										</div>
-										<div class="col-md-12 animate-box">
-											<div class="progress-wrap">
-												<div class="skill-bar-content">
-													<span class="skill-title">SEO</span>
-												</div>
-												<div class="bar5 barfiller">
-													<div class="tipWrap">
-														<span class="tip"></span>
-													</div>
-													<span class="fill progress-bg1" data-percentage="70"></span>
-												</div>
-											</div>
-										</div>
-										<div class="col-md-12 animate-box">
-											<div class="progress-wrap">
-												<div class="skill-bar-content">
-													<span class="skill-title">CSS3</span>
-												</div>
-												<div class="bar6 barfiller">
-													<div class="tipWrap">
-														<span class="tip"></span>
-													</div>
-													<span class="fill progress-bg1" data-percentage="80"></span>
-												</div>
-											</div>
-										</div>
+
+                                        @endforeach
+
+
+
+										
 									</div>
 								</div>
 							</div>

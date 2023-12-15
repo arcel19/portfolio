@@ -71,7 +71,7 @@ class ProfileController extends Controller
             ]);
         }
 
-        return $profile;
+        return to_route('profile.index');
     }
 
     /**

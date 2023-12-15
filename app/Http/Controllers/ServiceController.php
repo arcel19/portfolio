@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Service;
 use App\Http\Requests\StoreServiceRequest;
 use App\Http\Requests\UpdateServiceRequest;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Storage;
 
 class ServiceController extends Controller
 {
@@ -13,7 +15,8 @@ class ServiceController extends Controller
      */
     public function index()
     {
-        return view('pages.service');
+        $services = Service::all();
+        return view('pages.service', compact('services'));
     }
 
     /**
@@ -29,7 +32,25 @@ class ServiceController extends Controller
      */
     public function store(StoreServiceRequest $request)
     {
-        //
+        $service = Service::create([
+            'name'=> $request->name,
+            'description' => $request->description,
+        ]);
+
+        if($request->file('photo')){
+            $request->validate([
+                'photo' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',]);
+            $ext = $request->file('photo')->extension();
+            $content = file_get_contents($request->file('photo'));
+            $filename = str::random(10);
+            $path = "servicePhoto/.$filename.$ext";
+            storage::disk('public')->put($path,$content);
+            $service->update([
+                'photo' =>$path
+            ]);
+        }
+
+        return to_route('service.index');
     }
 
     /**
@@ -61,6 +82,7 @@ class ServiceController extends Controller
      */
     public function destroy(Service $service)
     {
-        //
+        $service->delete();
+        return to_route('service.index');
     }
 }

@@ -1,6 +1,10 @@
 <?php
 
+use App\Models\Award;
+use App\Models\Skill;
 use App\Models\Profile;
+use App\Models\Education;
+use App\Models\Experience;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\SiteController;
@@ -26,7 +30,11 @@ use App\Http\Controllers\ExperienceController;
 
 Route::get('/', function () {
     $profile = Profile::all();
-    return view('welcome', compact('profile'));
+    $skills = Skill::all();
+    $experiences = Experience::all();
+    $educations  = Education::all();
+    $awards = Award::all();
+    return view('welcome', compact('profile','skills','awards','educations','experiences'));
 });
 
 Route::middleware([

@@ -13,7 +13,8 @@ class EducationController extends Controller
      */
     public function index()
     {
-        return view('pages.education');
+        $educations = Education::all();
+        return view('pages.education',compact('educations'));
     }
 
     /**
@@ -29,7 +30,13 @@ class EducationController extends Controller
      */
     public function store(StoreEducationRequest $request)
     {
-        //
+        $educations = Education::create([
+            'name'=> $request->name,
+            'startDate'=> $request->startDate,
+            'endDate'=> $request->endDate,
+            'description' => $request->description,
+        ]);
+        return to_route('education.index')->with('message','education added successfully');
     }
 
     /**

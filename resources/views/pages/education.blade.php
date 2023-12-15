@@ -25,42 +25,27 @@
                    <thead>
                        <tr>
                            <th scope="col">#</th>
-                           <th scope="col">First Name</th>
-                           <th scope="col">Last Name</th>
-                           <th scope="col">Email</th>
-                           <th scope="col">Country</th>
-                           <th scope="col">ZIP</th>
-                           <th scope="col">Status</th>
+                           <th scope="col"> Name</th>
+                           <th scope="col">start date</th>
+                           <th scope="col">end date</th>
+                           <th scope="col">description</th>
+                           <th scope="col">action</th>
                        </tr>
                    </thead>
                    <tbody>
+                    @foreach ($eductions as $edu )
+
                        <tr>
-                           <th scope="row">1</th>
-                           <td>John</td>
-                           <td>Doe</td>
-                           <td>jhon@email.com</td>
-                           <td>USA</td>
-                           <td>123</td>
-                           <td>Member</td>
+                           <th scope="row">{{ $edu->id }}</th>
+                           <td>{{ $edu->name }}</td>
+                           <td>{{ $edu->startDate }}</td>
+                           <td>{{ $edu->endDate }}</td>
+                           <td>{{ $eduu->description }}</td>
+                           <td> <a href="#" class="btn btn-outline-primary" ><i
+                            class="fa fa-trash"></i> </a></td>
                        </tr>
-                       <tr>
-                           <th scope="row">2</th>
-                           <td>Mark</td>
-                           <td>Otto</td>
-                           <td>mark@email.com</td>
-                           <td>UK</td>
-                           <td>456</td>
-                           <td>Member</td>
-                       </tr>
-                       <tr>
-                           <th scope="row">3</th>
-                           <td>Jacob</td>
-                           <td>Thornton</td>
-                           <td>jacob@email.com</td>
-                           <td>AU</td>
-                           <td>789</td>
-                           <td>Member</td>
-                       </tr>
+                       @endforeach
+
                    </tbody>
                </table>
            </div>
@@ -79,6 +64,9 @@
          <h1 class="modal-title fs-5" id="exampleModalLabel">education</h1>
          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
        </div>
+       <form action="{{ route('education.store') }}" method="POST">
+        @method('post')
+        @csrf
        <div class="modal-body">
         <div class="form-floating mb-3">
             <input type="text" name="name" class="form-control" id="floatingInput"
@@ -86,16 +74,16 @@
             <label for="floatingInput">Name</label>
         </div>
         <div class="form-floating mb-3">
-            <input type="date" name="startDate" class="form-control" 
+            <input type="date" name="startDate" class="form-control"
                 placeholder="start date">
             <label for="floatingPassword">start date</label>
         </div>
         <div class="form-floating mb-3">
-            <input type="date" name="endDate" class="form-control" 
+            <input type="date" name="endDate" class="form-control"
                 placeholder="end date">
             <label for="floatingPassword">end date</label>
         </div>
-       
+
         <div class="form-floating">
             <textarea class="form-control" name="description" placeholder="Leave a comment here"
                 id="floatingTextarea" style="height: 150px;"></textarea>
@@ -107,6 +95,7 @@
          <button type="button" class="btn btn-primary">Save changes</button>
        </div>
      </div>
+    </form>
    </div>
  </div>
 

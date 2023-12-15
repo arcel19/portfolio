@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Projet;
 use App\Http\Requests\StoreProjetRequest;
 use App\Http\Requests\UpdateProjetRequest;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Storage;
 
 class ProjetController extends Controller
 {
@@ -13,7 +15,8 @@ class ProjetController extends Controller
      */
     public function index()
     {
-        return view('pages.contact');
+        $projets = Projet::all();
+        return view('pages.projet', compact('projets'));
     }
 
     /**
@@ -29,7 +32,25 @@ class ProjetController extends Controller
      */
     public function store(StoreProjetRequest $request)
     {
-        //
+        $projet = Projet::create([
+            'name'=> $request->name,
+            'description'=> $request->description,
+            'category'=> $request->category,
+        ]);
+        if($request->file('photo')){
+            $request->validate([
+                'photo' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',]);
+            $ext = $request->file('photo')->extension();
+            $content = file_get_contents($request->file('photo'));
+            $filename = str::random(10);
+            $path = "projetPhoto/.$filename.$ext";
+            storage::disk('public')->put($path,$content);
+            $projet->update([
+                'photo' =>$path
+            ]);
+        }
+         
+        return to_route('projet.index');
     }
 
     /**
@@ -61,6 +82,7 @@ class ProjetController extends Controller
      */
     public function destroy(Projet $projet)
     {
-        //
+        $projet->delete();
+        return to_route('projet.index');
     }
 }

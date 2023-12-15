@@ -13,7 +13,8 @@ class AwardController extends Controller
      */
     public function index()
     {
-        return view('pages.award');
+        $awards = Award::all();
+        return view('pages.award', compact('awards'));
     }
 
     /**
@@ -29,7 +30,14 @@ class AwardController extends Controller
      */
     public function store(StoreAwardRequest $request)
     {
-        //
+        $awards = Award::create([
+            'client' => $request->client,
+            'jobs' => $request->jobs,
+            'win'=> $request->win,
+            'design'=> $request->design,
+        ]);
+
+        return to_route('award.index');
     }
 
     /**
@@ -61,6 +69,7 @@ class AwardController extends Controller
      */
     public function destroy(Award $award)
     {
-        //
+        $award->delete();
+        return to_route('award.index');
     }
 }

@@ -11,7 +11,7 @@ class StoreAwardRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,10 @@ class StoreAwardRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'client'=> 'required|numeric',
+            'win'=> 'required|numeric',
+            'jobs'=>'required|numeric',
+            'design'=> 'required|numeric',
         ];
     }
 }

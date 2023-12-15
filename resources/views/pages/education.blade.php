@@ -33,16 +33,20 @@
                        </tr>
                    </thead>
                    <tbody>
-                    @foreach ($eductions as $edu )
+                    @foreach ($educations as $edu )
 
                        <tr>
                            <th scope="row">{{ $edu->id }}</th>
                            <td>{{ $edu->name }}</td>
                            <td>{{ $edu->startDate }}</td>
-                           <td>{{ $edu->endDate }}</td>
-                           <td>{{ $eduu->description }}</td>
-                           <td> <a href="#" class="btn btn-outline-primary" ><i
-                            class="fa fa-trash"></i> </a></td>
+                           <td>{{ $edu->enddate }}</td>
+                           <td>{{ $edu->description }}</td>
+                           <td> <form action="{{ Route('education.destroy', $edu->id) }}" method="POST">
+                            @method('delete')
+                            @csrf
+                            <button type="submit" class="btn btn-outline-primary" ><i
+                            class="fa fa-trash"></i> </button>
+                        </form></td>
                        </tr>
                        @endforeach
 
@@ -79,7 +83,7 @@
             <label for="floatingPassword">start date</label>
         </div>
         <div class="form-floating mb-3">
-            <input type="date" name="endDate" class="form-control"
+            <input type="date" name="enddate" class="form-control"
                 placeholder="end date">
             <label for="floatingPassword">end date</label>
         </div>
@@ -92,7 +96,7 @@
        </div>
        <div class="modal-footer">
          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-         <button type="button" class="btn btn-primary">Save changes</button>
+         <button type="submit" class="btn btn-primary">Save changes</button>
        </div>
      </div>
     </form>

@@ -24,7 +24,7 @@ class StoreEducationRequest extends FormRequest
         return [
             'name'=> 'required|string',
             'startDate'=> 'required|date',
-            'endDate'=> 'required|date',
+            'enddate'=> 'required|date',
             'description'=> 'required|string',
         ];
     }

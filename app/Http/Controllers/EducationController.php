@@ -33,7 +33,7 @@ class EducationController extends Controller
         $educations = Education::create([
             'name'=> $request->name,
             'startDate'=> $request->startDate,
-            'endDate'=> $request->endDate,
+            'enddate'=> $request->enddate,
             'description' => $request->description,
         ]);
         return to_route('education.index')->with('message','education added successfully');
@@ -68,6 +68,7 @@ class EducationController extends Controller
      */
     public function destroy(Education $education)
     {
-        //
+        $education->delete();
+        return to_route('education.index');
     }
 }

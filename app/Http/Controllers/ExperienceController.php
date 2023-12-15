@@ -13,7 +13,8 @@ class ExperienceController extends Controller
      */
     public function index()
     {
-        return view('pages.experience');
+        $experiences = Experience::all();
+        return view('pages.experience', compact('experiences'));
     }
 
     /**
@@ -29,7 +30,9 @@ class ExperienceController extends Controller
      */
     public function store(StoreExperienceRequest $request)
     {
-        //
+        $experience = Experience::create([
+            'name' =>
+        ])
     }
 
     /**

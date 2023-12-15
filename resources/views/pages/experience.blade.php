@@ -25,42 +25,34 @@
                    <thead>
                        <tr>
                            <th scope="col">#</th>
-                           <th scope="col">First Name</th>
-                           <th scope="col">Last Name</th>
-                           <th scope="col">Email</th>
-                           <th scope="col">Country</th>
-                           <th scope="col">ZIP</th>
-                           <th scope="col">Status</th>
+                           <th scope="col"> Name</th>
+                           <th scope="col">start date</th>
+                           <th scope="col">end date</th>
+                           <th scope="col">description</th>
+                           <th scope="col">action</th>
+
                        </tr>
                    </thead>
                    <tbody>
+                    @foreach ($experiences as $exp )
+
                        <tr>
-                           <th scope="row">1</th>
-                           <td>John</td>
-                           <td>Doe</td>
-                           <td>jhon@email.com</td>
-                           <td>USA</td>
-                           <td>123</td>
-                           <td>Member</td>
+                           <th scope="row">{{ $exp->id }}</th>
+                           <td>{{ $exp->name }}</td>
+                           <td>{{ $exp->startDate }}</td>
+                           <td>{{ $exp->enddate }}</td>
+                           <td>{{ $exp->description }}</td>
+                           <td> <td> <form action="{{ Route('experience.destroy', $exp->id) }}" method="POST">
+                            @method('delete')
+                            @csrf
+                            <button type="submit" class="btn btn-outline-primary" ><i
+                            class="fa fa-trash"></i> </button>
+                        </form></td></td>
+
                        </tr>
-                       <tr>
-                           <th scope="row">2</th>
-                           <td>Mark</td>
-                           <td>Otto</td>
-                           <td>mark@email.com</td>
-                           <td>UK</td>
-                           <td>456</td>
-                           <td>Member</td>
-                       </tr>
-                       <tr>
-                           <th scope="row">3</th>
-                           <td>Jacob</td>
-                           <td>Thornton</td>
-                           <td>jacob@email.com</td>
-                           <td>AU</td>
-                           <td>789</td>
-                           <td>Member</td>
-                       </tr>
+                    @endforeach
+
+
                    </tbody>
                </table>
            </div>
@@ -86,16 +78,16 @@
             <label for="floatingInput">Name</label>
         </div>
         <div class="form-floating mb-3">
-            <input type="date" name="startDate" class="form-control" 
+            <input type="date" name="startDate" class="form-control"
                 placeholder="start date">
             <label for="floatingPassword">start date</label>
         </div>
         <div class="form-floating mb-3">
-            <input type="date" name="endDate" class="form-control" 
+            <input type="date" name="enddate" class="form-control"
                 placeholder="end date">
             <label for="floatingPassword">end date</label>
         </div>
-       
+
         <div class="form-floating">
             <textarea class="form-control" name="description" placeholder="Leave a comment here"
                 id="floatingTextarea" style="height: 150px;"></textarea>

@@ -2,6 +2,7 @@
 
 use App\Models\Award;
 use App\Models\Skill;
+use App\Models\Projet;
 use App\Models\Profile;
 use App\Models\Education;
 use App\Models\Experience;
@@ -34,7 +35,8 @@ Route::get('/', function () {
     $experiences = Experience::all();
     $educations  = Education::all();
     $awards = Award::all();
-    return view('welcome', compact('profile','skills','awards','educations','experiences'));
+    $projets = Projet::all();
+    return view('welcome', compact('profile','skills','awards','educations','experiences','projets'));
 });
 
 Route::middleware([

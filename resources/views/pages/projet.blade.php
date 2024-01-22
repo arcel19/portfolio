@@ -29,21 +29,21 @@
                            <th scope="col">category</th>
                            <th scope="col">description</th>
                            <th scope="col">photo</th>
-                           
+
                            <th scope="col">action</th>
                        </tr>
                    </thead>
                    <tbody>
                     @foreach ($projets as $p )
-                        
+
                        <tr>
                            <th scope="row">{{ $p->id }}</th>
                            <td>{{ $p->name }}</td>
-                           <td>{{ $p->category }}</td>
-                           <td>{{ $p->decription }}</td>
+                           <td>{{ $p->lien }}</td>
+                           <td>{{ $p->descritpion }}</td>
                            <td> <img class="rounded-circle" src="{{ '/storage/'.$p->photo }}" alt="" style="width: 40px; height: 40px;"> </td>
-                        
-                           <td> <form action="{{ Route('service.destroy', $p->id) }}" method="POST">
+
+                           <td> <form action="{{ Route('projet.destroy', $p->id) }}" method="POST">
                             @method('delete')
                             @csrf
                             <button type="submit" class="btn btn-outline-primary" ><i
@@ -51,7 +51,7 @@
                         </form></td>
                        </tr>
                     @endforeach
-                      
+
                    </tbody>
                </table>
            </div>
@@ -80,16 +80,16 @@
             <label for="floatingInput">Name</label>
         </div>
         <div class="form-floating mb-3">
-            <input type="text" name="category" class="form-control" id="floatingPassword"
-                placeholder="category">
-            <label for="floatingPassword">category</label>
+            <input type="text" name="lien" class="form-control" id="floatingPassword"
+                placeholder="lien">
+            <label for="floatingPassword">link</label>
         </div>
         <div class="mb-3">
             <label for="formFile" class="form-label">Photo</label>
             <input class="form-control" type="file" name="photo" id="formFile">
         </div>
         <div class="form-floating">
-            <textarea class="form-control" name="description" placeholder="Leave a comment here"
+            <textarea class="form-control" name="descritpion" placeholder="Leave a comment here"
                 id="floatingTextarea" style="height: 150px;"></textarea>
             <label for="floatingTextarea">Description</label>
         </div>

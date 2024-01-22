@@ -23,8 +23,8 @@ class StoreProjetRequest extends FormRequest
     {
         return [
             'name'=> 'required|string',
-            'description'=> 'required|string',
-            'category'=> 'required|string',
+            'descritpion'=> 'required|string',
+            'lien'=> 'string',
             'photo'=> 'sometimes'
         ];
     }

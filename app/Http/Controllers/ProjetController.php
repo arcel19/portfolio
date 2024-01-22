@@ -34,8 +34,8 @@ class ProjetController extends Controller
     {
         $projet = Projet::create([
             'name'=> $request->name,
-            'description'=> $request->description,
-            'category'=> $request->category,
+            'descritpion'=> $request->descritpion,
+            'lien'=> $request->lien,
         ]);
         if($request->file('photo')){
             $request->validate([
@@ -49,7 +49,7 @@ class ProjetController extends Controller
                 'photo' =>$path
             ]);
         }
-         
+
         return to_route('projet.index');
     }
 

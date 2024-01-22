@@ -246,7 +246,7 @@
 									<div id="Skills" class="resume-page res-top-margin">
 										<h2 class="heading">Skills</h2>
                                         @foreach ($skills as $sk )
-                                            
+
 										<div class="col-md-12 animate-box">
 											<div class="progress-wrap">
 												<div class="skill-bar-content">
@@ -265,7 +265,7 @@
 
 
 
-										
+
 									</div>
 								</div>
 							</div>
@@ -391,105 +391,24 @@
 						</div>
 						<div class="grid filter custom">
 							<div class="row">
-								<div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 grid-item cat1 cat3">
+                                @foreach ($projets as $pro )
+                                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 grid-item cat1 cat3">
 									<div class="protfolio-wrapper mb-30">
 										<div class="portfolio-hover">
-											<img src="img/portfolio/01.jpg" alt="" />
+											<img src="{{ '/storage/' . $pro->photo }}" alt="" />
 										</div>
 										<figcaption>
 											<i class="las la-arrows-alt"></i>
-											<h2><a href="#">Fusion Design</a></h2>
+											<h2><a href="#">{{ $pro->name }}</a></h2>
 										</figcaption>
 									</div>
 								</div>
-								<div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 grid-item cat2 cat4">
-									<div class="protfolio-wrapper mb-30">
-										<div class="portfolio-hover">
-											<img src="img/portfolio/02.jpg" alt="" />
-										</div>
-										<figcaption>
-											<i class="las la-arrows-alt"></i>
-											<h2><a href="#">Fusion Design</a></h2>
-										</figcaption>
-									</div>
-								</div>
-								<div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 grid-item cat4 cat1">
-									<div class="protfolio-wrapper mb-30">
-										<div class="portfolio-hover">
-											<img src="img/portfolio/03.jpg" alt="" />
-										</div>
-										<figcaption>
-											<i class="las la-arrows-alt"></i>
-											<h2><a href="#">Fusion Design</a></h2>
-										</figcaption>
-									</div>
-								</div>
-								<div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 grid-item cat4 cat1">
-									<div class="protfolio-wrapper mb-30">
-										<div class="portfolio-hover">
-											<img src="img/portfolio/04.jpg" alt="" />
-										</div>
-										<figcaption>
-											<i class="las la-arrows-alt"></i>
-											<h2><a href="#">Fusion Design</a></h2>
-										</figcaption>
-									</div>
-								</div>
-								<div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 grid-item cat2 cat4">
-									<div class="protfolio-wrapper mb-30">
-										<div class="portfolio-hover">
-											<img src="img/portfolio/08.jpg" alt="" />
-										</div>
-										<figcaption>
-											<i class="las la-arrows-alt"></i>
-											<h2><a href="#">Fusion Design</a></h2>
-										</figcaption>
-									</div>
-								</div>
-								<div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 grid-item cat2 cat4">
-									<div class="protfolio-wrapper mb-30">
-										<div class="portfolio-hover">
-											<img src="img/portfolio/06.jpg" alt="" />
-										</div>
-										<figcaption>
-											<i class="las la-arrows-alt"></i>
-											<h2><a href="#">Fusion Design</a></h2>
-										</figcaption>
-									</div>
-								</div>
-								<div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 grid-item cat2 cat4">
-									<div class="protfolio-wrapper mb-30">
-										<div class="portfolio-hover">
-											<img src="img/portfolio/07.jpg" alt="" />
-										</div>
-										<figcaption>
-											<i class="las la-arrows-alt"></i>
-											<h2><a href="#">Fusion Design</a></h2>
-										</figcaption>
-									</div>
-								</div>
-								<div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 grid-item cat2 cat4">
-									<div class="protfolio-wrapper mb-30">
-										<div class="portfolio-hover">
-											<img src="img/portfolio/05.jpg" alt="" />
-										</div>
-										<figcaption>
-											<i class="las la-arrows-alt"></i>
-											<h2><a href="#">Fusion Design</a></h2>
-										</figcaption>
-									</div>
-								</div>
-								<div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 grid-item cat2 cat4">
-									<div class="protfolio-wrapper mb-30">
-										<div class="portfolio-hover">
-											<img src="img/portfolio/09.jpg" alt="" />
-										</div>
-										<figcaption>
-											<i class="las la-arrows-alt"></i>
-											<h2><a href="#">Fusion Design</a></h2>
-										</figcaption>
-									</div>
-								</div>
+                                @endforeach
+
+
+
+
+
 							</div>
 						</div>
 					</div>

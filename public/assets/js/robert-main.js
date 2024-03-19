@@ -1,9 +1,9 @@
 (function ($) {
-	
+
 "use strict";
 
 $(document).ready(function(){
-	
+
 /* header_sticky */
 	$(window).on('scroll',function() {
 	   var scroll = $(window).scrollTop();
@@ -13,15 +13,15 @@ $(document).ready(function(){
 		$("#header-sticky").addClass("scroll-header");
 	   }
 	});
-	
-/* Preloader */ 
+
+/* Preloader */
 
     $(window).on('load', (function () {
         var preLoder = $(".hola");
         preLoder.fadeOut(1000);
     }));
 
-	
+
 	if ( $( "#pagepiling" ).length ) {
 
 		$('#pagepiling').pagepiling({
@@ -49,10 +49,10 @@ $(document).ready(function(){
 				}
 			}
 		});
-	
+
 	}
 
-/* Progress Bar */ 
+/* Progress Bar */
 	$(document).ready(function(){
 		$('.bar1').barfiller({duration: 3000 });
 		$('.bar2').barfiller({duration: 3000 });
@@ -62,7 +62,7 @@ $(document).ready(function(){
 		$('.bar6').barfiller({duration: 3000 });
 		$('.bar7').barfiller({duration: 3000 });
 	});
-	
+
 /* Counter Up */
 	$('.counter').counterUp({
 		delay: 10,
@@ -76,13 +76,13 @@ $(document).ready(function(){
 		animation: 'fade',
 		scrollText: '<i class="fa fa-angle-up"></i>',
 	});
-	
-	
+
+
 /* Mobile Nav */
 	$('#nav-13').slicknav();
 	$(".slicknav_menu").appendTo(".small-menu");
-	
-/* Type Text*/	
+
+/* Type Text*/
     if ($("#typewriting").length) {
         var app = document.getElementById("typewriting");
         var typewriter = new Typewriter(app, {
@@ -97,21 +97,21 @@ $(document).ready(function(){
         var personal = new Typewriter(app, {
             loop: true
         });
-        personal.typeString('UI/UX Designer.').pauseFor(2000).deleteAll()
-            .typeString('Web Developer.').pauseFor(2000).deleteAll()
-            .typeString('Wordpress Developer.').start();
+        personal.typeString('PHP Developer.').pauseFor(2000).deleteAll()
+            .typeString('Web And Mobile Developer.').pauseFor(2000).deleteAll()
+            .typeString('Laravel Developer.').start();
     }
-	
-	
-	
-	/* POPUP VIDEO */  
+
+
+
+	/* POPUP VIDEO */
     if ($(".video-btn").length) {
         $(".video-btn").on("click", function(){
             $.fancybox({
                 href: this.href,
                 type: $(this).data("type"),
                 'title'         : this.title,
-                helpers     : {  
+                helpers     : {
                     title : { type : 'inside' },
                     media : {}
                 },
@@ -121,10 +121,10 @@ $(document).ready(function(){
                 }
             });
             return false
-        });    
+        });
     }
-	
-	
+
+
 	/* Scrolling Effect js */
 	// Select all links with hashes
 	$('a[href*="#"]')
@@ -134,8 +134,8 @@ $(document).ready(function(){
 	  .click(function(event) {
 		// On-page links
 		if (
-		  location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') 
-		  && 
+		  location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '')
+		  &&
 		  location.hostname == this.hostname
 		) {
 		  // Figure out element to scroll to
@@ -161,8 +161,8 @@ $(document).ready(function(){
 			});
 		  }
 		}
-	});	
-	
+	});
+
 })
 
 })(jQuery);

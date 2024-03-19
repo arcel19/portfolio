@@ -16,7 +16,8 @@ class ProfileController extends Controller
      */
     public function index()
     {
-        return view('pages.profile');
+        $profile = Profile::all();
+        return view('pages.profile', compact('profile'));
     }
 
     /**
@@ -103,6 +104,7 @@ class ProfileController extends Controller
      */
     public function destroy(Profile $profile)
     {
-        //
+        $profile->delete();
+        return  to_route('profile.index');
     }
 }

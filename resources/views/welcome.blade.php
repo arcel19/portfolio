@@ -51,19 +51,19 @@
                 <div class="col-xl-4 col-lg-4 col-md-4 col-sm-8">
                     <div class="logo">
                         <a href="#">
-                            <img src="img/logo/logo.jpeg" alt="ArcelCapital" />
+                            <img src="assets/img/logo/logo.jpeg" width="100" height="70" alt="ArcelCapital" />
                         </a>
                     </div>
                 </div>
                 <div class="col-xl-8 col-lg-8 col-md-8 col-sm-2">
                     <div class="wrap_nav mainmenu text-right">
                         <ul id="nav-13" class="menu">
-                            <li data-menuanchor="page1" class="active"><a href="#page1">home</a></li>
-                            <li data-menuanchor="page2"><a href="#page2">about</a></li>
-                            <li data-menuanchor="page3"><a href="#page3">service</a></li>
-                            <li data-menuanchor="page4"><a href="#page4">portfolio</a></li>
-                            <li data-menuanchor="page5"><a href="#page5">blog</a></li>
-                            <li data-menuanchor="page6"><a href="#page6">contact</a></li>
+                            <li data-menuanchor="home" class="active"><a href="#page1">home</a></li>
+                            <li data-menuanchor="about"><a href="#page2">about</a></li>
+                            <li data-menuanchor="services"><a href="#page3">services</a></li>
+                            <li data-menuanchor="portfolio"><a href="#page4">portfolio</a></li>
+                            <li data-menuanchor="blog"><a href="#page5">blog</a></li>
+                            <li data-menuanchor="contact"><a href="#page6">contact</a></li>
                         </ul>
                     </div>
                 </div>
@@ -82,7 +82,7 @@
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="myphoto">
-                                            <img src="{{ '/storage/' . $pro->logo }} " alt="porri">
+                                            <img src="{{ '/storage/' . $pro->logo }} " alt="ArcelCapital">
                                         </div>
                                     </div>
                                     <div class="col-md-6 text-left">
@@ -405,7 +405,7 @@
                             <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 grid-item cat1 cat3">
                                 <div class="protfolio-wrapper mb-30">
                                     <div class="portfolio-hover">
-                                        <img src="{{ '/storage/' . $pro->photo }}" alt="" />
+                                        <img src="{{ '/storage/'. $pro->photo }}" alt="" />
                                     </div>
                                     <figcaption>
                                         <i class="las la-arrows-alt"></i>

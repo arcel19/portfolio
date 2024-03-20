@@ -13,11 +13,16 @@ return new class extends Migration
     {
         Schema::create('sites', function (Blueprint $table) {
             $table->id();
-            $table->string('logo');
+            $table->string('logo')->nullable();
             $table->string('service_description')->nullable();
             $table->string('projet_description')->nullable();
             $table->string('contact_description')->nullable();
             $table->string('blog_description')->nullable();
+            $table->string('office');
+            $table->integer('phone');
+            $table->string('email');
+            $table->string('website');
+            $table->string('map')->nullable();
             $table->timestamps();
         });
     }

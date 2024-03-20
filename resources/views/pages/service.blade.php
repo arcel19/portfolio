@@ -28,19 +28,19 @@
                            <th scope="col">Name</th>
                            <th scope="col">description</th>
                            <th scope="col">photo</th>
-                           
+
                            <th scope="col">action</th>
                        </tr>
                    </thead>
                    <tbody>
                     @foreach ( $services as $s )
-                        
+
                        <tr>
                            <th scope="row">{{ $s->id }}</th>
                            <td>{{ $s->name }}</td>
                            <td>{{ $s->descroption }}</td>
-                           <td> <img class="rounded-circle" src="{{ '/storage/'.$s->photo }}" alt="" style="width: 40px; height: 40px;"> </td>
-                        
+                           <td {{ $s->photo }}</td>
+
                            <td> <form action="{{ Route('service.destroy', $s->id) }}" method="POST">
                             @method('delete')
                             @csrf
@@ -51,7 +51,7 @@
 
                     @endforeach
 
-                       
+
                    </tbody>
                </table>
            </div>
@@ -79,11 +79,16 @@
                 placeholder="name">
             <label for="floatingInput">Name</label>
         </div>
-      
-        <div class="mb-3">
+        <div class="form-floating mb-3">
+            <input type="text" name="photo" class="form-control" id="floatingInput"
+                placeholder="name">
+            <label for="floatingInput">photo</label>
+        </div>
+
+        {{-- <div class="mb-3">
             <label for="formFile" class="form-label">Photo</label>
             <input class="form-control" type="file" name="photo" id="formFile">
-        </div>
+        </div> --}}
         <div class="form-floating">
             <textarea class="form-control" name="description" placeholder="Leave a comment here"
                 id="floatingTextarea" style="height: 150px;"></textarea>

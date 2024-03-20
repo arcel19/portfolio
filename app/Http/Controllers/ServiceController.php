@@ -35,20 +35,21 @@ class ServiceController extends Controller
         $service = Service::create([
             'name'=> $request->name,
             'description' => $request->description,
+            'photo' => $request->photo,
         ]);
 
-        if($request->file('photo')){
-            $request->validate([
-                'photo' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',]);
-            $ext = $request->file('photo')->extension();
-            $content = file_get_contents($request->file('photo'));
-            $filename = str::random(10);
-            $path = "servicePhoto/.$filename.$ext";
-            storage::disk('public')->put($path,$content);
-            $service->update([
-                'photo' =>$path
-            ]);
-        }
+        // if($request->file('photo')){
+        //     $request->validate([
+        //         'photo' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',]);
+        //     $ext = $request->file('photo')->extension();
+        //     $content = file_get_contents($request->file('photo'));
+        //     $filename = str::random(10);
+        //     $path = "servicePhoto/.$filename.$ext";
+        //     storage::disk('public')->put($path,$content);
+        //     $service->update([
+        //         'photo' =>$path
+        //     ]);
+        // }
 
         return to_route('service.index');
     }

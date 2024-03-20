@@ -51,7 +51,7 @@
                 <div class="col-xl-4 col-lg-4 col-md-4 col-sm-8">
                     <div class="logo">
                         <a href="#">
-                            <img src="assets/img/logo/logo.jpeg" width="100" height="70" alt="ArcelCapital" />
+                            <img src="assets/img/logo/arcel.png" width="100" height="70" alt="ArcelCapital" />
                         </a>
                     </div>
                 </div>
@@ -290,19 +290,22 @@
                     </div>
                 </div>
                 <div class="row">
+                    @foreach ($services as $serv )
+
                     <div class="col-md-6 col-lg-4">
                         <div class="single-service-features box-border text-center">
                             <div class="service-icon">
-                                <i class="lab la-dochub"></i>
+                                <i class="{{ $serv->photo }}"></i>
                             </div>
                             <div class="services-content">
-                                <h3>Web Designer</h3>
-                                <p>Here are many variations of passages of check Lorem Ipsum has been industry's
-                                    standard dummy text</p>
+                                <h3>{{ $serv->name }}</h3>
+                                <p>{{ $serv->description }}</p>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6 col-lg-4">
+                    @endforeach
+
+                    {{-- <div class="col-md-6 col-lg-4">
                         <div class="single-service-features box-border text-center">
                             <div class="service-icon">
                                 <i class="las la-chart-bar"></i>
@@ -313,8 +316,8 @@
                                     standard dummy text</p>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4">
+                    </div> --}}
+                    {{-- <div class="col-md-6 col-lg-4">
                         <div class="single-service-features box-border text-center">
                             <div class="service-icon">
                                 <i class="lab la-hotjar"></i>
@@ -325,8 +328,8 @@
                                     standard dummy text</p>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4">
+                    </div> --}}
+                    {{-- <div class="col-md-6 col-lg-4">
                         <div class="single-service-features box-border text-center">
                             <div class="service-icon">
                                 <i class="las la-briefcase"></i>
@@ -337,8 +340,8 @@
                                     standard dummy text</p>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4">
+                    </div> --}}
+                    {{-- <div class="col-md-6 col-lg-4">
                         <div class="single-service-features box-border text-center">
                             <div class="service-icon">
                                 <i class="las la-rocket"></i>
@@ -349,8 +352,8 @@
                                     standard dummy text</p>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4">
+                    </div> --}}
+                    {{-- <div class="col-md-6 col-lg-4">
                         <div class="single-service-features box-border text-center">
                             <div class="service-icon">
                                 <i class="lab la-chromecast"></i>
@@ -361,7 +364,7 @@
                                     standard dummy text</p>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
             <div class="container">
@@ -436,156 +439,34 @@
                         </div>
                     </div>
                     <div class="row">
+                        @foreach ($blogs as $bl)
                         <div class="col-md-4">
                             <div class="new-blog-builder res-bottom">
                                 <div class="blog-wrapper-image">
-                                    <img src="img/blog/1.jpg">
+                                    <img src="{{ '/storage/'. $bl->photo}}">
                                 </div>
                                 <div class="grid-content">
                                     <div class="meta-wrap">
                                         <h2 class="post-title-builder">
-                                            <a href="#">Build Your Website Into Design Automatically</a>
+                                            <a href="#">{{$bl->name}}</a>
                                         </h2>
-                                        <p>Rearrange the entire color palette, making your site unique and beautiful.
+                                        <p>{{$bl->description}}.
                                         </p>
                                         <span class="bp-padd">
                                             <i class="las la-folder-open"></i>
-                                            <a href="#">Branding ,</a>
+                                            <a href="#">{{$bl->category}} ,</a>
                                             <a href="#">Fusion</a>
                                         </span>
                                         <span>
                                             <i class="las la-user"></i>
-                                            <a href="#" title="Posts by admin" rel="author">by admin</a>
+                                            <a href="#" title="Posts by admin" rel="author">Ay Admin</a>
                                         </span>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-4">
-                            <div class="new-blog-builder res-bottom">
-                                <div class="blog-wrapper-image">
-                                    <img src="img/blog/3.jpg">
-                                </div>
-                                <div class="grid-content">
-                                    <div class="meta-wrap">
-                                        <h2 class="post-title-builder">
-                                            <a href="#">Build Your Website Into Design Automatically</a>
-                                        </h2>
-                                        <p>Rearrange the entire color palette, making your site unique and beautiful.
-                                        </p>
-                                        <span class="bp-padd">
-                                            <i class="las la-folder-open"></i>
-                                            <a href="#">Branding ,</a>
-                                            <a href="#">Fusion</a>
-                                        </span>
-                                        <span>
-                                            <i class="las la-user"></i>
-                                            <a href="#" title="Posts by admin" rel="author">by admin</a>
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="new-blog-builder res-bottom">
-                                <div class="blog-wrapper-image">
-                                    <img src="img/blog/6.jpg">
-                                </div>
-                                <div class="grid-content">
-                                    <div class="meta-wrap">
-                                        <h2 class="post-title-builder">
-                                            <a href="#">Build Your Website Into Design Automatically</a>
-                                        </h2>
-                                        <p>Rearrange the entire color palette, making your site unique and beautiful.
-                                        </p>
-                                        <span class="bp-padd">
-                                            <i class="las la-folder-open"></i>
-                                            <a href="#">Branding ,</a>
-                                            <a href="#">Fusion</a>
-                                        </span>
-                                        <span>
-                                            <i class="las la-user"></i>
-                                            <a href="#" title="Posts by admin" rel="author">by admin</a>
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="new-blog-builder res-bottom">
-                                <div class="blog-wrapper-image">
-                                    <img src="img/blog/4.jpg">
-                                </div>
-                                <div class="grid-content">
-                                    <div class="meta-wrap">
-                                        <h2 class="post-title-builder">
-                                            <a href="#">Build Your Website Into Design Automatically</a>
-                                        </h2>
-                                        <p>Rearrange the entire color palette, making your site unique and beautiful.
-                                        </p>
-                                        <span class="bp-padd">
-                                            <i class="las la-folder-open"></i>
-                                            <a href="#">Branding ,</a>
-                                            <a href="#">Fusion</a>
-                                        </span>
-                                        <span>
-                                            <i class="las la-user"></i>
-                                            <a href="#" title="Posts by admin" rel="author">by admin</a>
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="new-blog-builder res-bottom">
-                                <div class="blog-wrapper-image">
-                                    <img src="img/blog/5.jpg">
-                                </div>
-                                <div class="grid-content">
-                                    <div class="meta-wrap">
-                                        <h2 class="post-title-builder">
-                                            <a href="#">Build Your Website Into Design Automatically</a>
-                                        </h2>
-                                        <p>Rearrange the entire color palette, making your site unique and beautiful.
-                                        </p>
-                                        <span class="bp-padd">
-                                            <i class="las la-folder-open"></i>
-                                            <a href="#">Branding ,</a>
-                                            <a href="#">Fusion</a>
-                                        </span>
-                                        <span>
-                                            <i class="las la-user"></i>
-                                            <a href="#" title="Posts by admin" rel="author">by admin</a>
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="new-blog-builder res-bottom">
-                                <div class="blog-wrapper-image">
-                                    <img src="img/blog/2.jpg">
-                                </div>
-                                <div class="grid-content">
-                                    <div class="meta-wrap">
-                                        <h2 class="post-title-builder">
-                                            <a href="#">Build Your Website Into Design Automatically</a>
-                                        </h2>
-                                        <p>Rearrange the entire color palette, making your site unique and beautiful.
-                                        </p>
-                                        <span class="bp-padd">
-                                            <i class="las la-folder-open"></i>
-                                            <a href="#">Branding ,</a>
-                                            <a href="#">Fusion</a>
-                                        </span>
-                                        <span>
-                                            <i class="las la-user"></i>
-                                            <a href="#" title="Posts by admin" rel="author">by admin</a>
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        @endforeach
+                   
                     </div>
                 </div>
             </div>

@@ -6,6 +6,9 @@ use App\Models\Projet;
 use App\Models\Profile;
 use App\Models\Education;
 use App\Models\Experience;
+use App\Models\Service;
+use App\Models\Blog;
+
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\SiteController;
@@ -36,7 +39,10 @@ Route::get('/', function () {
     $educations  = Education::all();
     $awards = Award::all();
     $projets = Projet::all();
-    return view('welcome', compact('profile','skills','awards','educations','experiences','projets'));
+    $services = Service::all();
+    $blogs = Blog::all();
+    return view('welcome', compact('profile','skills','awards','educations','experiences','projets','services',
+'blogs'));
 });
 
 Route::middleware([
